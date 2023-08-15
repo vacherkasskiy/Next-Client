@@ -1,0 +1,26 @@
+.nested_layout {
+    padding: 90px 40px 50px 40px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #363c48;
+}
+
+.nested_layout > .main {
+    width: 100%;
+    max-width: 1800px;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 30px;
+}
+
+.nested_layout > .main > .content {
+    position: relative;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    background-color: #1e232a;
+    border-radius: 10px;
+}
