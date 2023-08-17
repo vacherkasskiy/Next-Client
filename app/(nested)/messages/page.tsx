@@ -1,9 +1,19 @@
-import React from "react";
+'use client'
 
-function Users(): React.ReactNode {
+import React from "react";
+import {useFetchAllMessagesQuery} from "@/services/MessagesService";
+
+const Users = () => {
+    const {data: messages, isLoading, error} =
+        useFetchAllMessagesQuery(5)
+
     return (
         <div>
-            Messages page!!
+            {isLoading && 'Loading...'}
+            {error && 'Error occurred'}
+            {messages && messages.map(x => (
+                <p>{x.email}, {x.body}<br></br></p>
+            ))}
         </div>)
 }
 

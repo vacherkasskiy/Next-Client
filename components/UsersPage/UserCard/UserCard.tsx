@@ -11,10 +11,10 @@ function UserCard({user}: UserCardProps): React.ReactNode {
         <div className={styles.user_card}>
             <img src={user.image} alt="user"/>
             <p>{ user.name }</p>
-            <p>{ user.email }</p>
-            <p>{ user.education }</p>
-            <p>{ user.city }</p>
-            <p>{ user.website }</p>
+            <p>Email: { user.email }</p>
+            <p>Education: { user.education }</p>
+            <p>City: { user.city }</p>
+            <p>Website: { user.website }</p>
         </div>
     )
 }
