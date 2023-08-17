@@ -1,11 +1,11 @@
 'use client'
 
 import React from "react";
-import {useFetchAllUsersQuery} from "@/services/UsersService";
+import {useAddUserMutation, useFetchAllUsersQuery} from "@/services/UsersService";
 
 function Users(): React.ReactNode {
     const {data: users, error, isLoading} = useFetchAllUsersQuery(5)
-
+    const [addUser, {error: addError}] = useAddUserMutation()
 
     return (
         <div>
