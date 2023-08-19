@@ -1,7 +1,7 @@
 .nested_layout {
     padding: 90px 40px 50px 40px;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     background-color: #363c48;
@@ -19,6 +19,7 @@
 .nested_layout > .main > .content {
     position: relative;
     padding: 30px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: #1e232a;

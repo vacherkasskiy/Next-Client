@@ -1,0 +1,20 @@
+.information_pair {
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 80px 220px;
+}
+
+.information_pair > .property, .value {
+    font-family: sans-serif;
+}
+
+.information_pair > .property {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+}
+
+.information_pair > .value {
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 14px;
+}

@@ -1,5 +1,4 @@
 import {createSlice,PayloadAction} from '@reduxjs/toolkit'
-import {fetchUsers} from "@/store/reducers/ActionCreators";
 
 interface UsersState {
     users: any[]

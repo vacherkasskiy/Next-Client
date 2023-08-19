@@ -12,7 +12,7 @@ const Users = () => {
             {isLoading && 'Loading...'}
             {error && 'Error occurred'}
             {messages && messages.map(x => (
-                <p>{x.email}, {x.body}<br></br></p>
+                <p key={x.id}>{x.email}, {x.body}<br></br></p>
             ))}
         </div>)
 }

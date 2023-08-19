@@ -1,6 +1,8 @@
 import styles from './UserCard.module.css'
 import React from "react";
 import {User} from "@/models";
+import {InformationPair} from "@/components/ui";
+import {UserInfo} from "@/components/UsersPage";
 
 interface UserCardProps {
     user: User
@@ -9,12 +11,15 @@ interface UserCardProps {
 function UserCard({user}: UserCardProps): React.ReactNode {
     return (
         <div className={styles.user_card}>
-            <img src={user.image} alt="user"/>
-            <p>{ user.name }</p>
-            <p>Email: { user.email }</p>
-            <p>Education: { user.education }</p>
-            <p>City: { user.city }</p>
-            <p>Website: { user.website }</p>
+            <div className={styles.main}>
+                <img className={styles.avatar} src={user.image && user.image} alt="user"/>
+                <div className={styles.info}>
+                    <UserInfo user={user} />
+                </div>
+            </div>
+            <div className={styles.box_wrapper}>
+                <div className={styles.box}></div>
+            </div>
         </div>
     )
 }

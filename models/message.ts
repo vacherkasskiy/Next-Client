@@ -1,4 +1,5 @@
 export default interface Message {
-    email: string,
-    body: string,
+    id: number
+    email: string
+    body: string
 }

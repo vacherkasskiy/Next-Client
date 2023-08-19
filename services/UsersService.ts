@@ -1,16 +1,18 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {User} from "@/models";
+import {GetUsersRequest} from "@/services/requests";
 
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',
-    baseQuery: fetchBaseQuery({baseUrl: 'https://jsonplaceholder.typicode.com'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://localhost:7024'}),
     tagTypes: ['Users'],
     endpoints: (build) => ({
-        fetchAllUsers: build.query<any[], number>({
-            query: (limit: number = 5) => ({
+        fetchAllUsers: build.query<User[], GetUsersRequest>({
+            query: (request: GetUsersRequest) => ({
                 url: '/users',
                 params: {
-                    _limit: limit
+                    limit: request.limit,
+                    skip: request.skip,
                 },
             }),
             providesTags: result => ['Users'],
