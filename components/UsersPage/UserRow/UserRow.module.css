@@ -31,15 +31,10 @@
     width: 100%;
 }
 
-.box_wrapper {
+.button_wrapper {
+    margin-top: 15px;
     height: 100%;
     display: flex;
-    align-items: center;
-}
-
-.box {
-    margin-top: 30px;
-    width: 100px;
-    aspect-ratio: 2/1;
-    background-color: red;
+    flex-direction: column;
+    justify-content: space-around;
 }

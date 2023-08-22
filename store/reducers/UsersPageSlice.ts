@@ -1,7 +1,8 @@
-import {createSlice,PayloadAction} from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {User} from "@/models";
 
 interface UsersState {
-    users: any[]
+    users: User[]
     isLoading: boolean
     error: string | null
 }
@@ -12,10 +13,10 @@ const initialState: UsersState = {
     error: null,
 }
 
-const UsersSlice = createSlice({
+const usersPageSlice = createSlice({
     name: 'users',
     initialState,
     reducers: {},
 })
 
-export default UsersSlice
+export default usersPageSlice

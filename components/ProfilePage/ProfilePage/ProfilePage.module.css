@@ -1,0 +1,24 @@
+.profile_page {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile_page > .avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile_page > .user {
+    margin-left: 30px;
+}
+
+.profile_page > .user > .name {
+    margin-bottom: 5px;
+    font-size: 25px;
+    font-weight: 600;
+    color: red;
+    font-family: sans-serif;
+}

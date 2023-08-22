@@ -2,7 +2,7 @@
     overflow: hidden;
     width: 100%;
     display: grid;
-    grid-template-columns: 80px 220px;
+    grid-template-columns: 90px 220px;
 }
 
 .information_pair > .property, .value {

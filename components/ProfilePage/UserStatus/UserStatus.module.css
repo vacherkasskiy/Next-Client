@@ -1,0 +1,14 @@
+.status {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: rgba(255, 0, 0, 0.5);
+}
+
+.status.Enabled {
+    border-bottom: 2px solid red;
+}
+
+.status.Disabled {
+    border-bottom: 2px solid transparent;
+}

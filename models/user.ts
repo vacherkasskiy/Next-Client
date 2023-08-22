@@ -5,4 +5,5 @@ export default interface User {
     email: string
     website: string | undefined
     image: string | undefined
+    status: string | undefined
 }

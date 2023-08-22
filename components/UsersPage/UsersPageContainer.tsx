@@ -1,7 +1,10 @@
+'use client'
+
 import {UsersPage} from "@/components/UsersPage/index";
 import React, {useState} from "react";
 import {GetUsersRequest} from "@/services/requests";
 import {useFetchAllUsersQuery} from "@/services/UsersService";
+import {Preloader} from "@/components/ui";
 
 export default function UsersPageContainer(): React.ReactNode {
     const [request, setRequest] = useState<GetUsersRequest>({
@@ -10,12 +13,21 @@ export default function UsersPageContainer(): React.ReactNode {
     })
     const {data: users, error, isLoading} = useFetchAllUsersQuery(request)
 
+    const addUsersCallback = () => {
+        setRequest({
+            ...request,
+            limit: request.limit && request.limit + 3
+        })
+    }
+
     return (
-        <UsersPage
-            isLoading={isLoading}
-            error={error && 'Error'}
-            users={users}
-            addUsersCallback={() => setRequest({...request, limit: request.limit && request.limit + 3})}
-        />
+        <>
+            {isLoading && <Preloader />}
+            {error && 'Error'}
+            {users && <UsersPage
+                users={users}
+                addUsersCallback={addUsersCallback}
+            />}
+        </>
     )
 }
