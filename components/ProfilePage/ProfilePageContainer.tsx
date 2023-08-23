@@ -4,7 +4,7 @@ import React from "react";
 import {useFetchUserQuery} from "@/services/UsersService";
 import {useParams} from "next/navigation";
 import {ProfilePage} from "@/components/ProfilePage/index";
-import {Preloader} from "@/components/ui";
+import {ErrorPage, Preloader} from "@/components/ui";
 
 export default function ProfilePageContainer(): React.ReactNode {
     const {userId} = useParams()
@@ -12,8 +12,8 @@ export default function ProfilePageContainer(): React.ReactNode {
 
     return (
         <>
-            {error && 'error'}
             {isLoading && <Preloader />}
+            {error && <ErrorPage message={'Something went wrong'} />}
             {user && <ProfilePage user={user} />}
         </>
     )

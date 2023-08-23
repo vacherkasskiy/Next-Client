@@ -4,7 +4,7 @@ import {UsersPage} from "@/components/UsersPage/index";
 import React, {useState} from "react";
 import {GetUsersRequest} from "@/services/requests";
 import {useFetchAllUsersQuery} from "@/services/UsersService";
-import {Preloader} from "@/components/ui";
+import {ErrorPage, Preloader} from "@/components/ui";
 
 export default function UsersPageContainer(): React.ReactNode {
     const [request, setRequest] = useState<GetUsersRequest>({
@@ -23,7 +23,7 @@ export default function UsersPageContainer(): React.ReactNode {
     return (
         <>
             {isLoading && <Preloader />}
-            {error && 'Error'}
+            {error && <ErrorPage message={'Something went wrong'} />}
             {users && <UsersPage
                 users={users}
                 addUsersCallback={addUsersCallback}
