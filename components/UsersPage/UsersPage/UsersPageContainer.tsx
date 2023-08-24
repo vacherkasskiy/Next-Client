@@ -1,6 +1,6 @@
 'use client'
 
-import {UsersPage} from "@/components/UsersPage/index";
+import UsersPage from "./UsersPage";
 import React, {useState} from "react";
 import {GetUsersRequest} from "@/services/requests";
 import {useFetchAllUsersQuery} from "@/services/UsersService";

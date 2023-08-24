@@ -1,21 +1,36 @@
 .profile_page {
     width: 100%;
+}
+
+.profile_page > .main {
+    width: 100%;
     display: flex;
     flex-direction: row;
 }
 
-.profile_page > .avatar {
+.profile_page > .user_posts {
+    margin-top: 50px;
+    width: 60%;
+}
+
+.profile_page > .new_post {
+    margin-top: 30px;
+    width: 60%;
+    min-width: 570px;
+}
+
+.profile_page > .main > .avatar {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.profile_page > .user {
+.profile_page > .main >.user {
     margin-left: 30px;
 }
 
-.profile_page > .user > .name {
+.profile_page > .main > .user > .name {
     margin-bottom: 5px;
     font-size: 25px;
     font-weight: 600;

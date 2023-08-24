@@ -1,7 +1,7 @@
 'use client'
 
 import React, {useState} from "react";
-import {UserStatus} from "@/components/ProfilePage/index";
+import UserStatus from "./UserStatus";
 import {useSetUserStatusMutation} from "@/services/UsersService";
 
 interface UserStatusContainerProps {
@@ -18,7 +18,7 @@ export default function UserStatusContainer({status, userId}: UserStatusContaine
     const [setUserStatus, {error, isLoading}] = useSetUserStatusMutation()
     const [state, setState] = useState<UserStatusContainerState>({
         isEditModeOn: false,
-        status: status || 'Default status'
+        status: status
     })
 
     const handleOnBlur = (status: string) => {
