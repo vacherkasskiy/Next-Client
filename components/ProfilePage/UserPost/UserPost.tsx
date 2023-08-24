@@ -11,10 +11,10 @@ export default function UserPost({image, name, text}: UserPostProps): React.Reac
     return (
         <div className={styles.user_post}>
             <img className={styles.avatar} src={image} alt=""/>
-            <p className={styles.text}>
-                <span className={styles.name}>{name}</span>
-                {text}
-            </p>
+            <div className={styles.info}>
+                <p className={styles.name}>{name}</p>
+                <p className={styles.text}>{text}</p>
+            </div>
         </div>
     );
 }
