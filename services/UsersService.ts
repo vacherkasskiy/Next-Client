@@ -27,7 +27,7 @@ export const usersAPI = createApi({
         }),
         setUserStatus: build.mutation<void, SetStatusRequest>({
             query: (request: SetStatusRequest) => ({
-                url: '/users/setStatus',
+                url: '/users/set_status',
                 method: 'PATCH',
                 body: request,
             }),

@@ -2,11 +2,13 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import usersPageSlice from "@/store/reducers/UsersPageSlice";
 import {messagesAPI} from "@/services/MessagesService";
 import {usersAPI} from "@/services/UsersService";
+import {postsAPI} from "@/services/PostsService";
 
 const rootReducer = combineReducers({
     // users: usersPageSlice.reducer,
     [messagesAPI.reducerPath]: messagesAPI.reducer,
     [usersAPI.reducerPath]: usersAPI.reducer,
+    [postsAPI.reducerPath]: postsAPI.reducer,
 })
 
 const setupStore = () => {
@@ -15,7 +17,8 @@ const setupStore = () => {
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware().concat(
                 messagesAPI.middleware,
-                usersAPI.middleware)
+                usersAPI.middleware,
+                postsAPI.middleware)
     })
 }
 
