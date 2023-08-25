@@ -13,9 +13,9 @@ export default function UserInfo({user}: UserInfoProps): React.ReactNode {
             <p className={styles.name}>{user.name}</p>
             <div className={styles.secondary}>
                 <InformationPair property={'Username'} value={user.username} />
-                <InformationPair property={'City'} value={'City'} />
+                <InformationPair property={'City'} value={user.city || 'Undefined'} />
                 <InformationPair property={'Email'} value={user.email} />
-                <InformationPair property={'Website'} value={user.website != undefined ? user.website : ''} />
+                <InformationPair property={'Website'} value={user.website || 'Undefined'} />
             </div>
         </div>
     )

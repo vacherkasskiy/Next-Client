@@ -4,6 +4,7 @@ export default interface User {
     username: string
     email: string
     website: string | undefined
+    city: string | undefined
     image: string | undefined
     status: string | undefined
 }

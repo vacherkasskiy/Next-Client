@@ -18,7 +18,7 @@ export default function UsersPage({users, usersLength, addUsersCallback}: UsersP
                 <div className={styles.button}>
                     <MyButton
                         onClick={addUsersCallback}
-                        text={'Add User'}
+                        text={'Add Users'}
                         size={'m'}
                         type={'fill'}
                     />
