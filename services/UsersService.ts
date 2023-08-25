@@ -2,13 +2,14 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {User} from "@/models";
 import {GetUsersRequest} from "@/services/requests";
 import SetStatusRequest from "./requests/Users/SetStatusRequest";
+import GetUsersResponse from "@/services/responses/GetUsersResponse";
 
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',
     baseQuery: fetchBaseQuery({baseUrl: 'https://localhost:7024'}),
     tagTypes: ['Users', 'User'],
     endpoints: (build) => ({
-        fetchAllUsers: build.query<User[], GetUsersRequest>({
+        fetchAllUsers: build.query<GetUsersResponse, GetUsersRequest>({
             query: (request: GetUsersRequest) => ({
                 url: '/users',
                 params: {

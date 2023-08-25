@@ -11,7 +11,7 @@ export default function UsersPageContainer(): React.ReactNode {
         limit: 4,
         skip: 0
     })
-    const {data: users, error, isLoading} = useFetchAllUsersQuery(request)
+    const {data, error, isLoading} = useFetchAllUsersQuery(request)
 
     const addUsersCallback = () => {
         setRequest({
@@ -24,8 +24,9 @@ export default function UsersPageContainer(): React.ReactNode {
         <>
             {isLoading && <Preloader />}
             {error && <ErrorPage message={'Something went wrong'} />}
-            {users && <UsersPage
-                users={users}
+            {data && <UsersPage
+                users={data.users}
+                usersLength={data.length}
                 addUsersCallback={addUsersCallback}
             />}
         </>
