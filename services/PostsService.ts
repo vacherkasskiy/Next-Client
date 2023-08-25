@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {Post} from "@/models";
+import {AddPostRequest} from "@/services/requests";
 
 export const postsAPI = createApi({
     reducerPath: 'postsAPI',
@@ -12,7 +13,18 @@ export const postsAPI = createApi({
             }),
             providesTags: result => ['Posts'],
         }),
+        addPost: build.mutation<void, AddPostRequest>({
+            query: (request: AddPostRequest) => ({
+                url: '/posts/add',
+                method: 'POST',
+                body: request,
+            }),
+            invalidatesTags: ['Posts'],
+        })
     }),
 })
 
-export const {useFetchUserPostsQuery} = postsAPI
+export const {
+    useFetchUserPostsQuery,
+    useAddPostMutation
+} = postsAPI

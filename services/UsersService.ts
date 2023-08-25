@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {User} from "@/models";
 import {GetUsersRequest} from "@/services/requests";
-import SetStatusRequest from "./requests/SetStatusRequest";
+import SetStatusRequest from "./requests/Users/SetStatusRequest";
 
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',
@@ -31,15 +31,7 @@ export const usersAPI = createApi({
                 method: 'PATCH',
                 body: request,
             }),
-            invalidatesTags: ['Users'],
-        }),
-        addUser: build.mutation<User, User>({
-            query: (user: User) => ({
-                url: '/users/add',
-                method: 'POST',
-                body: user,
-            }),
-            invalidatesTags: ['Users'],
+            invalidatesTags: ['User'],
         }),
     })
 })

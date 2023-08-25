@@ -19,7 +19,7 @@ export default function ProfilePage({user}: ProfilePageProps): React.ReactNode {
                 </div>
             </div>
             <div className={styles.new_post}>
-                <NewPostContainer/>
+                <NewPostContainer receiverId={user.id}/>
             </div>
             <div className={styles.user_posts}>
                 <UserPostsContainer userId={user.id}/>

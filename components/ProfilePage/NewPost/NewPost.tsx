@@ -17,7 +17,7 @@ export default function NewPost({text, onAddCallback, onChangeCallback}: NewPost
         }
     }
 
-    const handleOnSave = () => {
+    const handleOnAdd = () => {
         onAddCallback()
     }
 
@@ -34,7 +34,7 @@ export default function NewPost({text, onAddCallback, onChangeCallback}: NewPost
                 <MyButton
                     text={'Post'}
                     size={'m'}
-                    onClick={handleOnSave}
+                    onClick={handleOnAdd}
                 />
             </div>
         </div>
