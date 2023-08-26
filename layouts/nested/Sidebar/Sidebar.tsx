@@ -1,3 +1,5 @@
+'use client'
+
 import styles from "./Sidebar.module.css";
 import profilePic from "@/assets/pictures/sidebar/user.png";
 import messagesPic from "@/assets/pictures/sidebar/message.png";
@@ -7,11 +9,14 @@ import musicPic from "@/assets/pictures/sidebar/music.png";
 import settingsPic from "@/assets/pictures/sidebar/settings.png";
 import Link from "next/link";
 import React from "react";
+import {useAppSelector} from "@/public/hooks/redux";
 
 function Sidebar(): React.ReactNode {
+    const userId = useAppSelector(state => state.user.user.id)
+
     return (
         <div className={styles.main_sidebar}>
-            <Link href={'/profile/1'} className={styles.section}>
+            <Link href={'/users/' + userId} className={styles.section}>
                 <img className={styles.icon} src={profilePic.src} alt=""/>
                 <p className={styles.name}>Profile</p>
             </Link>

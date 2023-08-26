@@ -1,0 +1,24 @@
+'use client'
+
+import React from "react";
+import styles from './MessagesHeader.module.css'
+import {User} from "@/models";
+import {useAppSelector} from "@/public/hooks/redux";
+
+interface MessagesHeaderProps {
+    user: User
+}
+
+export default function MessagesHeader(): React.ReactNode {
+    const user = useAppSelector(state => state.user.user)
+
+    return (
+        <div className={styles.messages_header}>
+            <img className={styles.avatar} src={user.image} alt=""/>
+            <div className={styles.user_info}>
+                <p className={styles.name}>{user.name}</p>
+                <p className={styles.seen_at}>15 minutes ago</p>
+            </div>
+        </div>
+    )
+}

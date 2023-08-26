@@ -13,7 +13,7 @@ export default function ProfilePageContainer(): React.ReactNode {
     return (
         <>
             {isLoading && <Preloader />}
-            {error && <ErrorPage message={'Something went wrong'} />}
+            {(!isLoading && error) && <ErrorPage message={'Something went wrong'} />}
             {user && <ProfilePage user={user} />}
         </>
     )

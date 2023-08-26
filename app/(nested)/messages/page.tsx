@@ -1,20 +1,15 @@
-'use client'
-
 import React from "react";
-import {useFetchAllMessagesQuery} from "@/services/MessagesService";
+import {Metadata} from "next";
 
-const Users = () => {
-    const {data: messages, isLoading, error} =
-        useFetchAllMessagesQuery(5)
-
-    return (
-        <div>
-            {isLoading && 'Loading...'}
-            {error && 'Error occurred'}
-            {messages && messages.map(x => (
-                <p key={x.id}>{x.email}, {x.body}<br></br></p>
-            ))}
-        </div>)
+export const metadata: Metadata = {
+    title: 'Messages page',
+    description: 'Read and send messages to your friends'
 }
 
-export default Users
+export default function EmptyDialogPage(): React.ReactNode {
+    return (
+        <div>
+            Nothing here lol
+        </div>
+    )
+}

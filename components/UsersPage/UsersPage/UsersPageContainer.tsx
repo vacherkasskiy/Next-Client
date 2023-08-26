@@ -23,7 +23,7 @@ export default function UsersPageContainer(): React.ReactNode {
     return (
         <>
             {isLoading && <Preloader />}
-            {error && <ErrorPage message={'Something went wrong'} />}
+            {(!isLoading && error) && <ErrorPage message={'Something went wrong'} />}
             {data && <UsersPage
                 users={data.users}
                 usersLength={data.length}

@@ -1,0 +1,1 @@
+export {default as SidebarContainer} from '@/layouts/messages/Sidebar/SidebarContainer'

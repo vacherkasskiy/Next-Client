@@ -2,11 +2,11 @@ import React from "react";
 import {Header, Sidebar} from "@/layouts/nested";
 import styles from './nested.module.css'
 
-interface UsersLayoutProps {
+interface NestedLayoutProps {
     children: React.ReactNode
 }
 
-function UsersLayout({children}: UsersLayoutProps): React.ReactNode {
+export default function NestedLayout({children}: NestedLayoutProps): React.ReactNode {
     return (
         <div className={styles.nested_layout}>
             <div className={styles.main}>
@@ -19,5 +19,3 @@ function UsersLayout({children}: UsersLayoutProps): React.ReactNode {
         </div>
     )
 }
-
-export default UsersLayout
