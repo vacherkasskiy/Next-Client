@@ -5,3 +5,7 @@
     background-color: #2a2e38;
     border-radius: 8px;
 }
+
+.dialogs > .search_bar {
+    margin-bottom: 10px;
+}

@@ -1,13 +1,7 @@
 .messages_page {
-    padding-left: 10px;
     width: 100%;
     height: 100%;
     display: grid;
     grid-template-rows: 50px 1fr;
     grid-row-gap: 10px;
-}
-
-.messages_page > * {
-    background-color: #2a2e38;
-    border-radius: 8px;
 }

@@ -4,3 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 5fr;
 }
+
+.messages_layout > .children {
+    padding-left: 10px;
+}

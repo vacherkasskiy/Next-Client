@@ -1,5 +1,8 @@
+import {User} from "@/models/index";
+
 export default interface Message {
-    id: number
-    email: string
-    body: string
+    id: number,
+    author: User,
+    receiver: User,
+    text: string,
 }

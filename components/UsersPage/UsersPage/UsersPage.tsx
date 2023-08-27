@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/app/(nested)/users/page.module.css";
+import styles from './UsersPage.module.css'
 import {UsersGrid} from "@/components/UsersPage";
 import {MyButton} from "@/components/ui";
 import {User} from "@/models";

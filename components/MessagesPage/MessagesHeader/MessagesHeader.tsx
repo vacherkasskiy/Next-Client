@@ -1,5 +1,3 @@
-'use client'
-
 import React from "react";
 import styles from './MessagesHeader.module.css'
 import {User} from "@/models";
@@ -9,9 +7,7 @@ interface MessagesHeaderProps {
     user: User
 }
 
-export default function MessagesHeader(): React.ReactNode {
-    const user = useAppSelector(state => state.user.user)
-
+export default function MessagesHeader({user}: MessagesHeaderProps): React.ReactNode {
     return (
         <div className={styles.messages_header}>
             <img className={styles.avatar} src={user.image} alt=""/>

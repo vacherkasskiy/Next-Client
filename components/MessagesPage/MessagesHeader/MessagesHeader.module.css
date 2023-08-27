@@ -6,6 +6,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    background-color: #2a2e38;
+    border-radius: 8px;
 }
 
 .messages_header > .avatar {

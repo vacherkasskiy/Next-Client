@@ -1,19 +1,30 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
-import {Message} from "@/models";
+import {MessageModel} from "@/models";
+import {AddMessageRequest} from "@/services/requests";
 
 export const messagesAPI = createApi({
     reducerPath: 'messagesAPI',
-    baseQuery: fetchBaseQuery({baseUrl: 'https://jsonplaceholder.typicode.com'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://localhost:7024'}),
+    tagTypes: ['Messages'],
     endpoints: (build) => ({
-        fetchAllMessages: build.query<Message[], number>({
-            query: (limit: number = 5) => ({
-                url: '/comments',
-                params: {
-                    _limit: limit
-                },
-            })
+        fetchAllMessages: build.query<MessageModel[], number>({
+            query: (userId: number) => ({
+                url: '/messages/get_for/' + userId,
+            }),
+            providesTags: result => ['Messages'],
+        }),
+        addMessage: build.mutation<void, AddMessageRequest>({
+            query: (request: AddMessageRequest) => ({
+                url: '/messages/add',
+                method: 'POST',
+                body: request,
+            }),
+            invalidatesTags: ['Messages'],
         })
     })
 })
 
-export const { useFetchAllMessagesQuery } = messagesAPI
+export const {
+    useFetchAllMessagesQuery,
+    useAddMessageMutation,
+} = messagesAPI

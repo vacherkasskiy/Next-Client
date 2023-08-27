@@ -1,1 +1,1 @@
-export {default as SidebarContainer} from '@/layouts/messages/Sidebar/SidebarContainer'
+export {default as Sidebar} from '@/layouts/messages/Sidebar/Sidebar'

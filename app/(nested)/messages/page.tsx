@@ -1,5 +1,6 @@
 import React from "react";
 import {Metadata} from "next";
+import {EmptyDialog} from "@/components/MessagesPage";
 
 export const metadata: Metadata = {
     title: 'Messages page',
@@ -8,8 +9,6 @@ export const metadata: Metadata = {
 
 export default function EmptyDialogPage(): React.ReactNode {
     return (
-        <div>
-            Nothing here lol
-        </div>
+        <EmptyDialog />
     )
 }

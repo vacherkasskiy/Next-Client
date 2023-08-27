@@ -1,17 +1,14 @@
 import React from "react";
-import {User} from "@/models";
 import styles from './Sidebar.module.css'
-import {SearchBarContainer} from "@/components/MessagesPage";
+import {DialogsListContainer, SearchBarContainer} from "@/components/MessagesPage";
 
-interface DialogsProps {
-    users: User[]
-}
-
-export default function Sidebar({users}: DialogsProps): React.ReactNode {
+export default function Sidebar(): React.ReactNode {
     return (
         <div className={styles.dialogs}>
-            <SearchBarContainer />
-            {users.map(user => user.name)}
+            <div className={styles.search_bar}>
+                <SearchBarContainer />
+            </div>
+            <DialogsListContainer />
         </div>
     )
 }

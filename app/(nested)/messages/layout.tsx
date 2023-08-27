@@ -1,5 +1,5 @@
 import React from "react";
-import {SidebarContainer} from "@/layouts/messages";
+import {Sidebar} from "@/layouts/messages";
 import styles from './messages.module.css'
 
 interface MessagesPageLayoutProps {
@@ -9,8 +9,10 @@ interface MessagesPageLayoutProps {
 export default function MessagesPageLayout({children}: MessagesPageLayoutProps): React.ReactNode {
     return (
         <div className={styles.messages_layout}>
-            <SidebarContainer />
-            {children}
+            <Sidebar />
+            <div className={styles.children}>
+                {children}
+            </div>
         </div>
     )
 }

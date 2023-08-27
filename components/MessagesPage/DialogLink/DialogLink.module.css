@@ -1,0 +1,45 @@
+.link_wrapper {
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.dialog_link {
+    padding: 5px;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+}
+
+.dialog_link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dialog_link > .avatar {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dialog_link > .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.dialog_link > .info > .user_name {
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: red;
+}
+
+.dialog_link > .info > .last_message {
+    font-family: sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+}
