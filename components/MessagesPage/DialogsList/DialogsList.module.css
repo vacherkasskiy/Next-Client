@@ -1,0 +1,8 @@
+.dialogs_list {
+    max-height: 520px;
+    overflow: auto;
+}
+
+.dialogs_list::-webkit-scrollbar {
+    display: none;
+}
