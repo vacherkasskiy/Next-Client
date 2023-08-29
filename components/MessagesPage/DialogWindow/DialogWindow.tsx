@@ -21,7 +21,9 @@ export default function DialogWindow({messages, currentUserId}: DialogWindowProp
                     />
                 )}
             </div>
-            <NewMessageContainer />
+            <div className={styles.new_message}>
+                <NewMessageContainer />
+            </div>
         </div>
     )
 }

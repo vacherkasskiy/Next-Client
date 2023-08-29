@@ -10,7 +10,9 @@ export default function DialogWindowContainer(): React.ReactNode {
     const {userId} = useParams()
     const currentUserId = useAppSelector(state => state.user.user.id)
     const {data: messages, isLoading, error} =
-        useFetchAllMessagesQuery(Number(userId))
+        useFetchAllMessagesQuery(Number(userId), {
+            pollingInterval: 1000,
+        })
 
     return (
         <>
