@@ -7,7 +7,11 @@ import {useFetchUserQuery} from "@/services/UsersService";
 
 export default function MessagesHeaderContainer(): React.ReactNode {
     const {userId} = useParams()
-    const {data:user, isLoading, error} = useFetchUserQuery(Number(userId))
+    const {
+        data:user,
+        isLoading,
+        error
+    } = useFetchUserQuery(Number(userId))
 
     return (
         <>

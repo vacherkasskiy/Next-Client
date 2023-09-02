@@ -13,6 +13,12 @@ export const messagesAPI = createApi({
             }),
             providesTags: result => ['Messages'],
         }),
+        fetchLatestMessage: build.query<MessageModel, number>({
+            query: (userId: number) => ({
+                url: '/messages/get_latest/' + userId,
+            }),
+            providesTags: result => ['Messages'],
+        }),
         addMessage: build.mutation<void, AddMessageRequest>({
             query: (request: AddMessageRequest) => ({
                 url: '/messages/add',
@@ -26,5 +32,6 @@ export const messagesAPI = createApi({
 
 export const {
     useFetchAllMessagesQuery,
+    useFetchLatestMessageQuery,
     useAddMessageMutation,
 } = messagesAPI
