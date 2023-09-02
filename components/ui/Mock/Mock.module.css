@@ -1,0 +1,14 @@
+@keyframes movingStripe {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.mock {
+    background: linear-gradient(90deg, #2a2e38, #2a2e38, rgba(255, 255, 255, 0.2), #2a2e38, #2a2e38);
+    background-size: 300% 100%;
+    animation: movingStripe 1s linear infinite;
+}

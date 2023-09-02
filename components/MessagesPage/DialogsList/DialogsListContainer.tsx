@@ -3,6 +3,7 @@
 import React from "react";
 import DialogsList from "@/components/MessagesPage/DialogsList/DialogsList";
 import {useFetchAllUsersQuery} from "@/services/UsersService";
+import DialogsListMock from "@/components/MessagesPage/DialogsList/DialogsListMock";
 
 export default function DialogsListContainer(): React.ReactNode {
     const {
@@ -16,6 +17,7 @@ export default function DialogsListContainer(): React.ReactNode {
 
     return (
         <>
+            {isLoading && <DialogsListMock />}
             {data && <DialogsList users={data.users} />}
         </>
     )

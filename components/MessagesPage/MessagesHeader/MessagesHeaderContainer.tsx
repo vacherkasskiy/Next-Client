@@ -4,6 +4,7 @@ import React from "react";
 import MessagesHeader from "./MessagesHeader";
 import {useParams} from "next/navigation";
 import {useFetchUserQuery} from "@/services/UsersService";
+import {Mock} from "@/components/ui";
 
 export default function MessagesHeaderContainer(): React.ReactNode {
     const {userId} = useParams()
@@ -15,6 +16,7 @@ export default function MessagesHeaderContainer(): React.ReactNode {
 
     return (
         <>
+            {isLoading && <Mock borderRadius={'8px'}/>}
             {user && <MessagesHeader user={user} />}
         </>
     )
