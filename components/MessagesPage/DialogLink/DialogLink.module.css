@@ -1,12 +1,11 @@
 .link_wrapper {
-    margin-bottom: 5px;
     width: 100%;
 }
 
 .dialog_link {
     padding: 5px;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
