@@ -1,14 +1,11 @@
 import React from "react"
 import Link from 'next/link'
+import {MainPage} from "@/components/MainPage";
 
-function MainPage(): React.ReactNode {
+function Main(): React.ReactNode {
     return (
-        <>
-            <Link href={'/users'}>Go to users page</Link>
-            <br></br>
-            <Link href={'/messages'}>Go to messages page</Link>
-        </>
+        <MainPage />
     )
 }
 
-export default MainPage
+export default Main
