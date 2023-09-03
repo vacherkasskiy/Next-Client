@@ -5,4 +5,6 @@ export default interface Message {
     author: User,
     receiver: User,
     text: string,
+    createdAt: Date,
+    updatedAt: Date,
 }
