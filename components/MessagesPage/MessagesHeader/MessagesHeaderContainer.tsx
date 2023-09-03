@@ -3,7 +3,7 @@
 import React from "react";
 import MessagesHeader from "./MessagesHeader";
 import {useParams} from "next/navigation";
-import {useFetchUserQuery} from "@/services/UsersService";
+import {useFetchUserQuery} from "@/api/UsersAPI";
 import {Mock} from "@/components/ui";
 
 export default function MessagesHeaderContainer(): React.ReactNode {

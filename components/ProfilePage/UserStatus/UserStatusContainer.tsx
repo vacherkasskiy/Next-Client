@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import UserStatus from "./UserStatus";
-import {useSetUserStatusMutation} from "@/services/UsersService";
+import {useSetUserStatusMutation} from "@/api/UsersAPI";
 
 interface UserStatusContainerProps {
     status: string,

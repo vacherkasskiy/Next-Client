@@ -1,8 +1,8 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {User} from "@/models";
-import {GetUsersRequest} from "@/services/requests";
-import SetStatusRequest from "./requests/Users/SetStatusRequest";
-import GetUsersResponse from "@/services/responses/GetUsersResponse";
+import {SetStatusRequest} from "@/api/requests";
+import {GetUsersResponse} from "@/api/responses";
+import {GetUsersRequest} from "@/api/requests";
 
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',

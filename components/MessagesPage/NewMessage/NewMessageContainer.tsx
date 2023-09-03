@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import NewMessage from "./NewMessage";
 import {useAppSelector} from "@/public/hooks/redux";
 import {useParams} from "next/navigation";
-import {useAddMessageMutation} from "@/services/MessagesService";
+import {useAddMessageMutation} from "@/api/MessagesAPI";
 
 export default function NewMessageContainer(): React.ReactNode {
     const [state, setState] = useState<string | undefined>('')

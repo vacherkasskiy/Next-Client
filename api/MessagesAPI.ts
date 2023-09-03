@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {MessageModel} from "@/models";
-import {AddMessageRequest} from "@/services/requests";
+import {AddMessageRequest} from "@/api/requests";
 
 export const messagesAPI = createApi({
     reducerPath: 'messagesAPI',
@@ -15,7 +15,7 @@ export const messagesAPI = createApi({
         }),
         fetchLatestMessage: build.query<MessageModel, number>({
             query: (userId: number) => ({
-                url: '/messages/get_latest/' + userId,
+                url: '/messages/get_latest_for/' + userId,
             }),
             providesTags: result => ['Messages'],
         }),

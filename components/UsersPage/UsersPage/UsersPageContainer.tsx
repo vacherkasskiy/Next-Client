@@ -2,8 +2,8 @@
 
 import UsersPage from "./UsersPage";
 import React, {useState} from "react";
-import {GetUsersRequest} from "@/services/requests";
-import {useFetchAllUsersQuery} from "@/services/UsersService";
+import {GetUsersRequest} from "@/api/requests";
+import {useFetchAllUsersQuery} from "@/api/UsersAPI";
 import {ErrorPage, Preloader} from "@/components/ui";
 
 export default function UsersPageContainer(): React.ReactNode {

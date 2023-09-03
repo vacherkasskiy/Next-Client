@@ -1,6 +1,6 @@
 import React from "react";
 import {User} from "@/models";
-import {useFetchLatestMessageQuery} from "@/services/MessagesService";
+import {useFetchLatestMessageQuery} from "@/api/MessagesAPI";
 import DialogLink from "@/components/MessagesPage/DialogLink/DialogLink";
 
 interface DialogLinkContainerProps {
