@@ -2,7 +2,7 @@
 
 import React from "react";
 import DialogsList from "@/components/MessagesPage/DialogsList/DialogsList";
-import {useFetchAllUsersQuery} from "@/api/UsersAPI";
+import {useFetchAllUsersQuery} from "@/shared/api/UsersAPI";
 import DialogsListMock from "@/components/MessagesPage/DialogsList/DialogsListMock";
 
 export default function DialogsListContainer(): React.ReactNode {
@@ -17,7 +17,7 @@ export default function DialogsListContainer(): React.ReactNode {
 
     return (
         <>
-            {isLoading && <DialogsListMock />}
+            {(isLoading || error) && <DialogsListMock />}
             {data && <DialogsList users={data.users} />}
         </>
     )

@@ -5,7 +5,7 @@ import DialogWindow from "./DialogWindow";
 import {useParams} from "next/navigation";
 import {useAppSelector} from "@/public/hooks/redux";
 import DialogWindowMock from "@/components/MessagesPage/DialogWindow/DialogWindowMock";
-import {useFetchAllMessagesQuery} from "@/api/MessagesAPI";
+import {useFetchAllMessagesQuery} from "@/shared/api/MessagesAPI";
 
 export default function DialogWindowContainer(): React.ReactNode {
     const {userId} = useParams()

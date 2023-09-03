@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import {useFetchUserQuery} from "@/api/UsersAPI";
+import {useFetchUserQuery} from "@/shared/api/UsersAPI";
 import {useParams} from "next/navigation";
 import ProfilePage from "./ProfilePage";
 import {ErrorPage, Preloader} from "@/components/ui";

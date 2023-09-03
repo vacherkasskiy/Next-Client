@@ -2,7 +2,7 @@
 
 import NewPost from "./NewPost";
 import React, {useState} from "react";
-import {useAddPostMutation} from "@/api/PostsAPI";
+import {useAddPostMutation} from "@/shared/api/PostsAPI";
 import {useAppSelector} from "@/public/hooks/redux";
 
 interface NewPostContainerProps {

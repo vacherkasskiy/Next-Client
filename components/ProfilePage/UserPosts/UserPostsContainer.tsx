@@ -1,5 +1,5 @@
 import React from "react";
-import {useFetchUserPostsQuery} from "@/api/PostsAPI";
+import {useFetchUserPostsQuery} from "@/shared/api/PostsAPI";
 import {UserPosts} from "@/components/ProfilePage";
 
 interface UserPostsContainerProps {

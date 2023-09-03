@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {MessageModel} from "@/models";
-import {AddMessageRequest} from "@/api/requests";
+import {AddMessageRequest} from "@/shared/api/requests";
 
 export const messagesAPI = createApi({
     reducerPath: 'messagesAPI',

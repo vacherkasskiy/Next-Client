@@ -2,7 +2,7 @@ import React from "react";
 import styles from './DialogWindow.module.css'
 import {Message, NewMessageContainer} from "@/components/MessagesPage";
 import {MessageModel} from "@/models";
-import {getDateString, getTimeString} from "@/services";
+import {getTimeString} from "@/shared/services";
 
 interface DialogWindowProps {
     messages: MessageModel[]
