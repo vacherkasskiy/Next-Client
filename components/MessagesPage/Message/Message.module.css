@@ -14,6 +14,7 @@
 }
 
 .message > .text {
+    position: relative;
     min-width: 80px;
     max-width: 400px;
     height: fit-content;
@@ -27,4 +28,12 @@
 
 .message > .text.owner {
     background-color: rgba(255, 92, 92, 0.3);
+}
+
+.message > .text > .time {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
 }

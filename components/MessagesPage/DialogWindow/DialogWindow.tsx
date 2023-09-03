@@ -2,6 +2,7 @@ import React from "react";
 import styles from './DialogWindow.module.css'
 import {Message, NewMessageContainer} from "@/components/MessagesPage";
 import {MessageModel} from "@/models";
+import {getDateString, getTimeString} from "@/services";
 
 interface DialogWindowProps {
     messages: MessageModel[]
@@ -18,6 +19,7 @@ export default function DialogWindow({messages, currentUserId}: DialogWindowProp
                         image={message.author.image}
                         text={message.text}
                         owner={message.author.id == currentUserId}
+                        time={`${getTimeString(message.createdAt)}`}
                     />
                 )}
             </div>
