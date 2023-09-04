@@ -3,12 +3,14 @@ import {messagesAPI} from "@/shared/api/MessagesAPI";
 import {usersAPI} from "@/shared/api/UsersAPI";
 import {postsAPI} from "@/shared/api/PostsAPI";
 import {userSlice} from '@/store/reducers'
+import {authAPI} from "@/shared/api/AuthAPI";
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
     [messagesAPI.reducerPath]: messagesAPI.reducer,
     [usersAPI.reducerPath]: usersAPI.reducer,
     [postsAPI.reducerPath]: postsAPI.reducer,
+    [authAPI.reducerPath]: authAPI.reducer,
 })
 
 const setupStore = () => {
@@ -18,7 +20,8 @@ const setupStore = () => {
             getDefaultMiddleware().concat(
                 messagesAPI.middleware,
                 usersAPI.middleware,
-                postsAPI.middleware)
+                postsAPI.middleware,
+                authAPI.middleware)
     })
 }
 

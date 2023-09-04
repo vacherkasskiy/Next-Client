@@ -1,1 +1,0 @@
-export {default as RegisterPage} from '@/components/RegisterPage/RegisterPage/RegisterPage'
