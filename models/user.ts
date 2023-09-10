@@ -7,6 +7,4 @@ export default interface User {
     city: string | undefined
     image: string | undefined
     status: string | undefined
-    createdAt: Date
-    updatedAt: Date
 }

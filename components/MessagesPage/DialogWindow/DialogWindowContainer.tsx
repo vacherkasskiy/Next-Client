@@ -9,7 +9,9 @@ import {useFetchAllMessagesQuery} from "@/shared/api/MessagesAPI";
 
 export default function DialogWindowContainer(): React.ReactNode {
     const {userId} = useParams()
-    const currentUserId = useAppSelector(state => state.user.user.id)
+    const currentUserId = useAppSelector(state =>
+        state.user.currentUser &&
+        state.user.currentUser.id)
     const {
         data: messages,
         isLoading,
@@ -23,7 +25,7 @@ export default function DialogWindowContainer(): React.ReactNode {
             {isLoading && <DialogWindowMock />}
             {messages && <DialogWindow
                 messages={messages}
-                currentUserId={currentUserId}
+                currentUserId={currentUserId || 0}
             />}
         </>
     )

@@ -40,15 +40,14 @@ export default function RegisterPage(): React.ReactNode {
                 })
             }
             onSubmit={async (values, {setFieldError}) => {
-                try {
-                    const response = await register({
-                        name: values.name,
-                        username: values.username,
-                        email: values.email,
-                        password: values.password
-                    });
-                } catch {
-                    setFieldError('email', 'Already exists');
+                const response = await register({
+                    name: values.name,
+                    username: values.username,
+                    email: values.email,
+                    password: values.password
+                });
+                if ('error' in response && 'data' in response.error) {
+                    setFieldError('email', 'Email is already in use')
                 }
             }}
         >

@@ -4,11 +4,27 @@ import React from 'react';
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import styles from '../AuthPage.module.css'
-import {useGetCurrentQuery, useLoginMutation} from "@/shared/api/AuthAPI";
+import {useLoginMutation} from "@/shared/api/AuthAPI";
 
 export default function LoginPage(): React.ReactNode {
-    const {data, isLoading, error} = useGetCurrentQuery()
-    const [login, {}] = useLoginMutation()
+    const [login, {
+        data,
+        error
+    }] = useLoginMutation()
+
+    const handleOnSubmit = async (values: any, setFieldError: (field: string, message: string) => void) => {
+        const response = await login(values)
+        if (error && 'error' in response && 'data' in response.error) {
+            switch (response.error.data) {
+                case 'Wrong email':
+                    setFieldError('email', 'Wrong email')
+                    break
+                case 'Wrong password':
+                    setFieldError('password', 'Wrong password')
+                    break
+            }
+        }
+    }
 
     return (
         <Formik
@@ -26,8 +42,8 @@ export default function LoginPage(): React.ReactNode {
                         .required("Password is required"),
                 })
             }
-            onSubmit={async (values, {setFieldError}) => {
-                await login(values)
+            onSubmit = {async (values, {setFieldError}) => {
+                await handleOnSubmit(values, setFieldError)
             }}
         >
             <Form className={styles.form}>

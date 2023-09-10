@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {LoginRequest, RegisterRequest} from "@/shared/api/requests";
+import {User} from "@/models";
 
 export const authAPI = createApi({
     reducerPath: 'authAPI',
@@ -10,6 +11,7 @@ export const authAPI = createApi({
                 url: '/auth/register',
                 method: 'POST',
                 body: request,
+                credentials: 'include',
             }),
         }),
         login: build.mutation<void, LoginRequest>({
@@ -20,7 +22,7 @@ export const authAPI = createApi({
                 credentials: 'include',
             }),
         }),
-        getCurrent: build.query<string, void>({
+        getCurrent: build.query<User, void>({
             query: () => ({
                 url: '/auth/get_current',
                 credentials: 'include',

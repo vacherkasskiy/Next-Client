@@ -12,11 +12,13 @@ import React from "react";
 import {useAppSelector} from "@/public/hooks/redux";
 
 function Sidebar(): React.ReactNode {
-    const userId = useAppSelector(state => state.user.user.id)
+    const currentUserId = useAppSelector(state =>
+        state.user.currentUser &&
+        state.user.currentUser.id)
 
     return (
         <div className={styles.main_sidebar}>
-            <Link href={'/users/' + userId} className={styles.section}>
+            <Link href={`/users/${currentUserId}`} className={styles.section}>
                 <img className={styles.icon} src={profilePic.src} alt=""/>
                 <p className={styles.name}>Profile</p>
             </Link>

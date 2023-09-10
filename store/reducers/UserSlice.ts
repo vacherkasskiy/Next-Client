@@ -2,29 +2,25 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {User} from "@/models";
 
 interface UsersState {
-    user: User
+    currentUser?: User
 }
 
 const initialState: UsersState = {
-    user: {
-        id: 1,
-        name: 'Vitaliy Cherkasskiy',
-        username: 'SYKO',
-        email: 'vitalik.cherkasskiy@gmail.com',
-        website: 'github.com/vacherkasskiy',
-        image: 'https://avatars.githubusercontent.com/u/90340909?v=4',
-        status: undefined,
-    }
+    currentUser: undefined
 }
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUser(state, action: PayloadAction<User>) {
-            state.user = action.payload
+        setCurrentUser(state, action: PayloadAction<User>) {
+            state.currentUser = action.payload
         },
     },
 })
+
+export const {
+    setCurrentUser,
+} = userSlice.actions
 
 export default userSlice
