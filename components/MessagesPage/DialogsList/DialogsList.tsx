@@ -11,9 +11,11 @@ export default function DialogsList({users}: DialogsListProps): React.ReactNode 
     return (
         <div className={styles.dialogs_list}>
             {users.map(user =>
-                <div className={styles.link_wrapper}>
+                <div
+                    className={styles.link_wrapper}
+                    key={user.id}
+                >
                     <DialogLinkContainer
-                        key={user.id}
                         user={user}
                     />
                 </div>

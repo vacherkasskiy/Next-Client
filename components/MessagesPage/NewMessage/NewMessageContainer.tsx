@@ -8,8 +8,8 @@ import {useAddMessageMutation} from "@/shared/api/MessagesAPI";
 
 export default function NewMessageContainer(): React.ReactNode {
     const [state, setState] = useState<string | undefined>('')
-    const currentUser = useAppSelector(state => state.user.user)
-    const [addMessage, {isLoading, error}]
+    const currentUser = useAppSelector(state => state.user.currentUser)
+    const [addMessage, {}]
         = useAddMessageMutation()
     const {userId: receiverId} = useParams()
 
@@ -20,7 +20,7 @@ export default function NewMessageContainer(): React.ReactNode {
     const handleOnAdd = () => {
         if (state) {
             addMessage({
-                authorId: currentUser.id,
+                authorId: (currentUser && currentUser.id) || -1,
                 receiverId: Number(receiverId),
                 text: state
             })

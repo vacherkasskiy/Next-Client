@@ -23,4 +23,6 @@ export default function IsAuthorized({children}: IsAuthorizedProps): React.React
             return children
         }
     }
+
+    return children
 }
