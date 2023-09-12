@@ -5,23 +5,24 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import styles from '../AuthPage.module.css'
 import {useLoginMutation} from "@/shared/api/AuthAPI";
+import {useRouter} from 'next/navigation';
 
 export default function LoginPage(): React.ReactNode {
-    const [login, {
-        data,
-        error
-    }] = useLoginMutation()
+    const router = useRouter()
+    const [login, {}] = useLoginMutation()
 
     const handleOnSubmit = async (values: any, setFieldError: (field: string, message: string) => void) => {
         const response = await login(values)
-        if (error && 'error' in response && 'data' in response.error) {
-            switch (response.error.data) {
-                case 'Wrong email':
+        if ('error' in response && 'originalStatus' in response.error) {
+            switch (response.error.originalStatus) {
+                case 400:
                     setFieldError('email', 'Wrong email')
                     break
-                case 'Wrong password':
+                case 403:
                     setFieldError('password', 'Wrong password')
                     break
+                case 200:
+                    router.push('/users')
             }
         }
     }

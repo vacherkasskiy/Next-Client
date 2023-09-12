@@ -10,20 +10,23 @@ export const messagesAPI = createApi({
         fetchAllMessages: build.query<MessageModel[], number>({
             query: (userId: number) => ({
                 url: '/messages/get_for/' + userId,
+                credentials: 'include',
             }),
-            providesTags: result => ['Messages'],
+            providesTags: ['Messages'],
         }),
         fetchLatestMessage: build.query<MessageModel, number>({
             query: (userId: number) => ({
                 url: '/messages/get_latest_for/' + userId,
+                credentials: 'include',
             }),
-            providesTags: result => ['Messages'],
+            providesTags: ['Messages'],
         }),
         addMessage: build.mutation<void, AddMessageRequest>({
             query: (request: AddMessageRequest) => ({
                 url: '/messages/add',
                 method: 'POST',
                 body: request,
+                credentials: 'include',
             }),
             invalidatesTags: ['Messages'],
         })

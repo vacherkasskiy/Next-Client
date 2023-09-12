@@ -5,9 +5,30 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from 'yup';
 import styles from '../AuthPage.module.css'
 import {useRegisterMutation} from "@/shared/api/AuthAPI";
+import {useRouter} from "next/navigation";
 
 export default function RegisterPage(): React.ReactNode {
     const [register, {}] = useRegisterMutation()
+    const router = useRouter()
+
+    const handleOnSubmit = async (values: any, setFieldError: (field: string, message: string) => void) => {
+        const response = await register({
+            name: values.name,
+            username: values.username,
+            email: values.email,
+            password: values.password
+        });
+
+        if ('error' in response && 'originalStatus' in response.error) {
+            switch (response.error.originalStatus) {
+                case 400:
+                    setFieldError('email', 'This email is already busy')
+                    break
+                case 200:
+                    router.push('/users')
+            }
+        }
+    }
 
     return (
         <Formik
@@ -40,15 +61,7 @@ export default function RegisterPage(): React.ReactNode {
                 })
             }
             onSubmit={async (values, {setFieldError}) => {
-                const response = await register({
-                    name: values.name,
-                    username: values.username,
-                    email: values.email,
-                    password: values.password
-                });
-                if ('error' in response && 'data' in response.error) {
-                    setFieldError('email', 'Email is already in use')
-                }
+                await handleOnSubmit(values, setFieldError)
             }}
         >
             <Form className={styles.form}>
