@@ -1,5 +1,5 @@
 import React from "react";
-import {HeaderContainer, Sidebar} from "@/layouts/nested";
+import {HeaderContainer, SidebarContainer} from "@/layouts/nested";
 import styles from './nested.module.css'
 import {IsAuthorized} from "@/hocs";
 
@@ -13,7 +13,7 @@ export default function NestedLayout({children}: NestedLayoutProps): React.React
             <div className={styles.nested_layout}>
                 <div className={styles.main}>
                     <HeaderContainer/>
-                    <Sidebar/>
+                    <SidebarContainer />
                     <div className={styles.content}>
                         {children}
                     </div>
