@@ -1,7 +1,6 @@
 import React from "react";
 import styles from './MessagesHeader.module.css'
 import {User} from "@/models";
-import {useAppSelector} from "@/public/hooks/redux";
 
 interface MessagesHeaderProps {
     user: User

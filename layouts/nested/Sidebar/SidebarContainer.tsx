@@ -1,6 +1,6 @@
 'use client'
 
-import {useAppSelector} from "@/public/hooks/redux";
+import {useAppSelector} from "@/shared/hooks/redux";
 import React from "react";
 import Sidebar from "@/layouts/nested/Sidebar/Sidebar";
 import {SidebarMenuItem} from "@/shared/models";

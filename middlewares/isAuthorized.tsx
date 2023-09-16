@@ -3,7 +3,7 @@
 import React from "react";
 import {useGetCurrentQuery} from "@/shared/api/AuthAPI";
 import { redirect } from 'next/navigation';
-import {useAppDispatch} from "@/public/hooks/redux";
+import {useAppDispatch} from "@/shared/hooks/redux";
 import {setCurrentUser} from "@/store/reducers/UserSlice";
 
 interface IsAuthorizedProps {
