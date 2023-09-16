@@ -1,0 +1,48 @@
+.my_button {
+    width: fit-content;
+    font-family: sans-serif;
+
+    &.Size_s {
+        padding: 5px 10px;
+        font-size: 13px;
+        border-radius: 5px;
+    }
+
+    &.Size_m {
+        padding: 10px 20px;
+        font-size: 15px;
+        border-radius: 8px;
+    }
+
+    &.Size_l {
+        padding: 15px 30px;
+        font-size: 17px;
+        border-radius: 8px;
+    }
+
+    &.Theme_red {
+        &.Type_fill {
+            background-color: red;
+            color: white;
+        }
+
+        &.Type_outline {
+            border: 2px solid red;
+            color: red
+        }
+    }
+
+    &.Theme_dark {
+        font-weight: 600;
+
+        &.Type_fill {
+            background-color: rgba(13, 16, 19, 0.8);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        &.Type_outline {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.8);
+        }
+    }
+}

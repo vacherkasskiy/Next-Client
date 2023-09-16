@@ -1,17 +1,21 @@
 import React from "react";
-import styles from './MyButton.module.css'
+import styles from './MyButton.module.scss'
 
 type size = 's' | 'm' | 'l'
 type type = 'fill' | 'outline'
+type theme = 'red' | 'dark'
+type typeProperty = 'button' | 'submit' | 'reset'
 
 interface MyButtonProps {
-    onClick?: (() => void) | undefined
     text: string
-    size?: size | undefined
-    type?: type | undefined
+    typeProperty?: typeProperty
+    size?: size
+    type?: type
+    theme?: theme
+    onClick?: (() => void)
 }
 
-export default function MyButton({text, onClick, size, type}: MyButtonProps): React.ReactNode {
+function MyButton({text, onClick, size, type, theme, typeProperty}: MyButtonProps): React.ReactNode {
     const getSizeStyle = (): string => {
         switch (size) {
             case undefined:
@@ -25,7 +29,7 @@ export default function MyButton({text, onClick, size, type}: MyButtonProps): Re
         }
     }
 
-    const getTypeStyle = ():string => {
+    const getTypeStyle = (): string => {
         switch (type) {
             case undefined:
                 return styles.Type_fill
@@ -36,12 +40,32 @@ export default function MyButton({text, onClick, size, type}: MyButtonProps): Re
         }
     }
 
+    const getThemeStyle = (): string => {
+        switch (theme) {
+            case undefined:
+                return styles.Theme_red
+            case 'red':
+                return styles.Theme_red
+            case 'dark':
+                return styles.Theme_dark
+        }
+    }
+
     const buttonStyle =
         styles.my_button + ' ' +
         getSizeStyle() + ' ' +
-        getTypeStyle()
+        getTypeStyle() + ' ' +
+        getThemeStyle()
 
     return (
-        <button className={buttonStyle} onClick={onClick}>{text}</button>
+        <button
+            className={buttonStyle}
+            onClick={onClick}
+            type={typeProperty || 'button'}
+        >
+            {text}
+        </button>
     )
 }
+
+export default MyButton
