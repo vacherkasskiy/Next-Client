@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import NewMessage from "./NewMessage";
-import {useAppSelector} from "@/public/hooks/redux";
+import {useAppSelector} from "@/shared/hooks/redux";
 import {useParams} from "next/navigation";
 import {useAddMessageMutation} from "@/shared/api/MessagesAPI";
 

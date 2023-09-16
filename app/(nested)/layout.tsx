@@ -1,7 +1,7 @@
 import React from "react";
 import {HeaderContainer, SidebarContainer} from "@/layouts/nested";
 import styles from './nested.module.css'
-import {IsAuthorized} from "@/hocs";
+import {IsAuthorized} from "@/middlewares";
 
 interface NestedLayoutProps {
     children: React.ReactNode

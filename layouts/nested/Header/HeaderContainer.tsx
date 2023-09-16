@@ -2,7 +2,7 @@
 
 import React from "react";
 import Header from "@/layouts/nested/Header/Header";
-import {useAppSelector} from "@/public/hooks/redux";
+import {useAppSelector} from "@/shared/hooks/redux";
 import settingsIcon from '@/assets/pictures/sidebar/settings.png'
 import userIcon from '@/assets/pictures/sidebar/user.png'
 import logoutIcon from '@/assets/pictures/sidebar/logout.png'
