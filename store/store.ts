@@ -2,11 +2,12 @@ import {combineReducers, configureStore} from '@reduxjs/toolkit'
 import {messagesAPI} from "@/shared/api/MessagesAPI";
 import {usersAPI} from "@/shared/api/UsersAPI";
 import {postsAPI} from "@/shared/api/PostsAPI";
-import {userSlice} from '@/store/reducers'
+import {userSlice, usersSlice} from '@/store/reducers'
 import {authAPI} from "@/shared/api/AuthAPI";
 
 const rootReducer = combineReducers({
     user: userSlice.reducer,
+    users: usersSlice.reducer,
     [messagesAPI.reducerPath]: messagesAPI.reducer,
     [usersAPI.reducerPath]: usersAPI.reducer,
     [postsAPI.reducerPath]: postsAPI.reducer,

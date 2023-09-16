@@ -16,21 +16,23 @@ export const usersAPI = createApi({
                     limit: request.limit,
                     skip: request.skip,
                 },
+                credentials: 'include',
             }),
-            providesTags: result => ['Users'],
+            providesTags: ['Users'],
         }),
         fetchUser: build.query<User, number>({
            query: (userId: number) => ({
                url: '/users/' + userId,
-               params: {},
+               credentials: 'include',
            }),
-           providesTags: result => ['User'] ,
+           providesTags: ['User'] ,
         }),
         setUserStatus: build.mutation<void, SetStatusRequest>({
             query: (request: SetStatusRequest) => ({
                 url: '/users/set_status',
                 method: 'PATCH',
                 body: request,
+                credentials: 'include',
             }),
             invalidatesTags: ['User'],
         }),

@@ -10,14 +10,16 @@ export const postsAPI = createApi({
         fetchUserPosts: build.query<Post[], number>({
             query: (userId: number) => ({
                 url: '/posts/get_for/' + userId,
+                credentials: 'include',
             }),
-            providesTags: result => ['Posts'],
+            providesTags: ['Posts'],
         }),
         addPost: build.mutation<void, AddPostRequest>({
             query: (request: AddPostRequest) => ({
                 url: '/posts/add',
                 method: 'POST',
                 body: request,
+                credentials: 'include',
             }),
             invalidatesTags: ['Posts'],
         })
