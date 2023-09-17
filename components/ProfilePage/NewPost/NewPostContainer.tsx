@@ -21,7 +21,7 @@ export default function NewPostContainer({receiverId}: NewPostContainerProps): R
     const handleOnAdd = () => {
         if (state) {
             addPost({
-                authorId: currentUser.id,
+                authorId: (currentUser && currentUser.id) || -1,
                 receiverId: receiverId,
                 text: state
             })
