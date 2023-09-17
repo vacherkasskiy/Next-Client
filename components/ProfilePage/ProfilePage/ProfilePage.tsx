@@ -5,17 +5,21 @@ import {NewPostContainer, UserInfo, UserPostsContainer, UserStatusContainer} fro
 
 interface ProfilePageProps {
     user: User
+    currentUserId: number
 }
 
-export default function ProfilePage({user}: ProfilePageProps): React.ReactNode {
+export default function ProfilePage({user, currentUserId}: ProfilePageProps): React.ReactNode {
     return (
         <div className={styles.profile_page}>
             <div className={styles.main}>
                 <img className={styles.avatar} src={user.image} alt={user.username}/>
                 <div className={styles.user}>
                     <p className={styles.name}>{user.name}</p>
-                    <UserStatusContainer status={user.status || 'Default Status'} userId={user.id} />
-                    <UserInfo user={user} />
+                    <UserStatusContainer status={user.status || 'Default Status'} />
+                    <UserInfo
+                        user={user}
+                        isEditable={user.id == currentUserId}
+                    />
                 </div>
             </div>
             <div className={styles.new_post}>

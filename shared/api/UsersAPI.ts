@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 import {User} from "@/models";
-import {EditProfileRequest, SetStatusRequest} from "@/shared/api/requests";
+import {EditProfileRequest} from "@/shared/api/requests";
 import {GetUsersResponse} from "@/shared/api/responses";
 import {GetUsersRequest} from "@/shared/api/requests";
 
@@ -27,11 +27,13 @@ export const usersAPI = createApi({
            }),
            providesTags: ['User'] ,
         }),
-        setUserStatus: build.mutation<void, SetStatusRequest>({
-            query: (request: SetStatusRequest) => ({
+        setUserStatus: build.mutation<void, string>({
+            query: (status: string) => ({
                 url: '/users/current/set_status',
                 method: 'PATCH',
-                body: request,
+                params: {
+                    status: status
+                },
                 credentials: 'include',
             }),
             invalidatesTags: ['User'],

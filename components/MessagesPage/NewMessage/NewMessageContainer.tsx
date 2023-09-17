@@ -2,13 +2,11 @@
 
 import React, {useState} from "react";
 import NewMessage from "./NewMessage";
-import {useAppSelector} from "@/shared/hooks/redux";
 import {useParams} from "next/navigation";
 import {useAddMessageMutation} from "@/shared/api/MessagesAPI";
 
 export default function NewMessageContainer(): React.ReactNode {
     const [state, setState] = useState<string | undefined>('')
-    const currentUser = useAppSelector(state => state.user.currentUser)
     const [addMessage, {}]
         = useAddMessageMutation()
     const {userId: receiverId} = useParams()
@@ -20,7 +18,6 @@ export default function NewMessageContainer(): React.ReactNode {
     const handleOnAdd = () => {
         if (state) {
             addMessage({
-                authorId: (currentUser && currentUser.id) || -1,
                 receiverId: Number(receiverId),
                 text: state
             })

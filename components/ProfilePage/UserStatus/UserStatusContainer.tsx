@@ -6,7 +6,6 @@ import {useSetUserStatusMutation} from "@/shared/api/UsersAPI";
 
 interface UserStatusContainerProps {
     status: string,
-    userId: number
 }
 
 interface UserStatusContainerState {
@@ -14,8 +13,8 @@ interface UserStatusContainerState {
     status: string,
 }
 
-export default function UserStatusContainer({status, userId}: UserStatusContainerProps): React.ReactNode {
-    const [setUserStatus, {error, isLoading}] = useSetUserStatusMutation()
+export default function UserStatusContainer({status}: UserStatusContainerProps): React.ReactNode {
+    const [setUserStatus, {}] = useSetUserStatusMutation()
     const [state, setState] = useState<UserStatusContainerState>({
         isEditModeOn: false,
         status: status
@@ -29,10 +28,7 @@ export default function UserStatusContainer({status, userId}: UserStatusContaine
             isEditModeOn: false,
             status: status,
         })
-        setUserStatus({
-            status: status,
-            userId: userId,
-        })
+        setUserStatus(status)
     }
 
     const handleOnFocus = () => {

@@ -7,16 +7,19 @@ import Link from "next/link";
 
 interface UserInfoProps {
     user: User
+    isEditable: boolean
 }
 
-export default function UserInfo({user}: UserInfoProps): React.ReactNode {
+export default function UserInfo({user, isEditable}: UserInfoProps): React.ReactNode {
     return (
         <div className={styles.info}>
-            <div className={styles.edit}>
-                <Link href={'/edit'}>
-                    <img src={editIcon.src} alt=""/>
-                </Link>
-            </div>
+            {isEditable &&
+                <div className={styles.edit}>
+                    <Link href={'/edit'}>
+                        <img src={editIcon.src} alt=""/>
+                    </Link>
+                </div>
+            }
             <InformationPair property={'Username'} value={user.username} />
             <InformationPair property={'City'} value={user.city || 'Undefined'} />
             <InformationPair property={'Email'} value={user.email} />
