@@ -7,8 +7,15 @@ import {GetUsersRequest} from "@/shared/api/requests";
 export const usersAPI = createApi({
     reducerPath: 'usersAPI',
     baseQuery: fetchBaseQuery({baseUrl: 'https://localhost:7024'}),
-    tagTypes: ['Users', 'User'],
+    tagTypes: ['Users', 'User', 'CurrentUser'],
     endpoints: (build) => ({
+        getCurrent: build.query<User, void>({
+            query: () => ({
+                url: '/auth/get_current',
+                credentials: 'include',
+            }),
+            providesTags: ['CurrentUser'],
+        }),
         fetchAllUsers: build.query<GetUsersResponse, GetUsersRequest>({
             query: (request: GetUsersRequest) => ({
                 url: '/users',
@@ -45,12 +52,13 @@ export const usersAPI = createApi({
                 body: request,
                 credentials: 'include',
             }),
-            invalidatesTags: ['User'],
+            invalidatesTags: ['User', 'CurrentUser'],
         }),
     })
 })
 
 export const {
+    useGetCurrentQuery,
     useFetchAllUsersQuery,
     useFetchUserQuery,
     useSetUserStatusMutation,

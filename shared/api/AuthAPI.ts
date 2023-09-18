@@ -1,6 +1,5 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/dist/query/react";
 import {LoginRequest, RegisterRequest} from "@/shared/api/requests";
-import {User} from "@/models";
 
 export const authAPI = createApi({
     reducerPath: 'authAPI',
@@ -33,13 +32,6 @@ export const authAPI = createApi({
             }),
             invalidatesTags: ['CurrentUser']
         }),
-        getCurrent: build.query<User, void>({
-            query: () => ({
-                url: '/auth/get_current',
-                credentials: 'include',
-            }),
-            providesTags: ['CurrentUser'],
-        }),
     })
 })
 
@@ -47,5 +39,4 @@ export const {
     useRegisterMutation,
     useLoginMutation,
     useLogoutMutation,
-    useGetCurrentQuery,
 } = authAPI

@@ -1,7 +1,7 @@
 'use client'
 
 import React from "react";
-import {useGetCurrentQuery} from "@/shared/api/AuthAPI";
+import {useGetCurrentQuery} from "@/shared/api/UsersAPI";
 import { redirect } from 'next/navigation';
 import {useAppDispatch} from "@/shared/hooks/redux";
 import {setCurrentUser} from "@/store/reducers/UserSlice";
